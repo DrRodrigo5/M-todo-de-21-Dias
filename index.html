@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liberdade Sem Fumaça</title>
+
+  <!-- Tailwind CDN (rápido para protótipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Pequenas correções para ícones/estilos que eram feitos com lucide-react */
+    .icon-ghost { display:inline-block; width:1.25rem; height:1.25rem; vertical-align:middle; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-white to-gray-50">
+
+  <!-- Urgency Timer -->
+  <div class="bg-gradient-to-r from-red-500 to-red-600 text-white py-4 sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center">
+      <div class="flex items-center gap-2">
+        <span class="icon-ghost">⏰</span>
+        <span class="font-bold text-sm sm:text-base">⚠️ Oferta Exclusiva Disponível Apenas por Tempo Limitado</span>
+      </div>
+      <div class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-lg backdrop-blur-sm">
+        <span id="timer" class="text-2xl font-bold tabular-nums">15:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 py-12 sm:py-20">
+    <div class="max-w-5xl mx-auto text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Você Não Merece Viver <span class="text-red-600">Preso ao Cigarro</span>
+      </h1>
+      <p class="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
+        A vida está passando… e você pode recuperá-la. <br class="hidden sm:block" />
+        <span class="font-semibold text-green-600">Sua família quer você presente — de verdade.</span>
+      </p>
+
+      <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 mb-8">
+        <img 
+          src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&h=400&fit=crop" 
+          alt="Família feliz abraçando" 
+          class="w-full h-64 sm:h-80 object-cover rounded-xl mb-6 shadow-lg"
+        />
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 italic">
+          "Imagine acordar sem tosse, respirar fundo sem dor, e estar presente nos momentos que realmente importam..."
+        </p>
+        <button 
+          onclick="scrollToCTA()"
+          class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-3 mx-auto"
+        >
+          <span class="icon-ghost">⬇️</span>
+          Baixar Agora — Comece Seu Novo Capítulo
+          <span class="icon-ghost">➡️</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional Story Section -->
+  <section class="bg-gradient-to-r from-blue-50 to-cyan-50 py-16 sm:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+          Quantos Momentos Você Já Perdeu?
+        </h2>
+
+        <div class="grid sm:grid-cols-2 gap-6 mb-12">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <img 
+              src="maocigarro.jpeg" 
+              alt="Mão segurando cigarro" 
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <p class="text-gray-700 leading-relaxed">
+              Aquele aniversário que você saiu no meio para fumar. A festa da escola do seu filho onde você ficou do lado de fora. 
+              Os abraços que seus netos evitam por causa do cheiro...
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop" 
+              alt="Pessoa respirando ar puro" 
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <p class="text-gray-700 leading-relaxed">
+              Mas imagine: acordar sem tosse, brincar com seus filhos sem perder o fôlego, estar presente de verdade. 
+              Não é tarde demais. Você merece essa liberdade.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div class="w-16 h-16 text-red-500 mx-auto mb-4 text-4xl">❤️</div>
+          <p class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+            Parar de fumar não é sobre força de vontade.
+          </p>
+          <p class="text-lg text-gray-600">
+            É sobre ter o método certo, no momento certo, com o apoio certo. E esse momento é agora.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Section -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-4">
+        Sua Vida Antes e Depois
+      </h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">
+        A transformação que vai mudar tudo
+      </p>
+
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- ANTES -->
+        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl border-4 border-gray-300">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-red-600 text-2xl">✖️</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-800">ANTES</h3>
+          </div>
+
+          <img 
+            src="vicio.jpeg" 
+            alt="Cigarro e cinzeiro" 
+            class="w-full h-48 object-cover rounded-lg mb-6 opacity-80"
+          />
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Dependência constante e ansiedade</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Cheiro forte em roupas e cabelo</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Tosse persistente todas as manhãs</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Falta de ar ao subir escadas</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Medo constante pela sua saúde</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Culpa ao olhar para sua família</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600">✖️</span><span class="text-gray-700">Gastos mensais que nunca param</span></li>
+          </ul>
+        </div>
+
+        <!-- DEPOIS -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 shadow-2xl border-4 border-green-400">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-green-600 text-2xl">✔️</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-800">DEPOIS</h3>
+          </div>
+
+          <img 
+            src="leve.jpeg" 
+            alt="Pessoa feliz respirando ar puro" 
+            class="w-full h-48 object-cover rounded-lg mb-6"
+          />
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Respiração leve e profunda</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Liberdade total e paz interior</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Autoestima renovada e orgulho</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Economia de milhares por ano</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Energia para viver plenamente</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Presença real com quem você ama</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600">✔️</span><span class="text-gray-700 font-medium">Futuro saudável garantido</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Health Impact Section -->
+  <section class="bg-gradient-to-r from-red-50 to-orange-50 py-16 sm:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+          O Que Está Realmente em Jogo
+        </h2>
+
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+          <img 
+            src="pulmao.jpeg" 
+            alt="Comparação pulmão saudável vs fumante" 
+            class="w-full h-64 sm:h-80 object-cover"
+          />
+
+          <div class="p-8 sm:p-12">
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
+              Cada cigarro rouba <span class="font-bold text-red-600">11 minutos</span> da sua vida. 
+              Não são apenas números — são momentos com seus filhos, netos, cônjuge. 
+              São risadas, abraços, memórias que você nunca vai criar.
+            </p>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-6">
+              <p class="text-gray-800 font-semibold mb-2">
+                Mas aqui está a boa notícia:
+              </p>
+              <p class="text-gray-700">
+                Seu corpo começa a se recuperar <span class="font-bold">20 minutos</span> após o último cigarro. 
+                Em 1 ano, seu risco de doença cardíaca cai pela metade. Em 10 anos, você praticamente eliminou o risco de câncer de pulmão.
+              </p>
+            </div>
+
+            <p class="text-xl font-bold text-green-600 text-center">
+              Não é tarde demais. Nunca é tarde demais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the eBook -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="w-16 h-16 mx-auto mb-4 text-4xl">✨</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Apresentando: Liberdade Sem Fumaça
+          </h2>
+          <p class="text-xl text-gray-600">
+            O método simples, direto e poderoso que já ajudou centenas de pessoas a se libertarem
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-2xl p-8 sm:p-12 mb-8">
+          <div class="grid sm:grid-cols-2 gap-8 mb-8">
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop" 
+                alt="eBook Liberdade Sem Fumaça" 
+                class="w-full rounded-xl shadow-2xl"
+              />
+            </div>
+
+            <div class="flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                O que você vai descobrir:
+              </h3>
+
+              <ul class="space-y-4">
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">✔️</span></div>
+                  <span class="text-gray-700 font-medium">Plano de 21 Dias passo a passo</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">⏱️</span></div>
+                  <span class="text-gray-700 font-medium">Protocolo de 90 Segundos anti-fissura</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">💖</span></div>
+                  <span class="text-gray-700 font-medium">Técnicas mentais comprovadas</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">🛡️</span></div>
+                  <span class="text-gray-700 font-medium">Plano anti-recaída definitivo</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">👥</span></div>
+                  <span class="text-gray-700 font-medium">Estratégias para lidar com gatilhos sociais</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <div class="bg-green-500 p-2 rounded-full"><span class="text-white">📈</span></div>
+                  <span class="text-gray-700 font-medium">Como recuperar sua saúde rapidamente</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-lg">
+            <p class="text-center text-gray-700 text-lg leading-relaxed">
+              <span class="font-bold text-blue-600">Acessível para qualquer idade.</span> Ideal para quem já tentou de tudo e não conseguiu. 
+              Linguagem simples, sem jargões médicos, focado em resultados reais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Section -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+          Quem Criou Este Método?
+        </h2>
+
+        <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl shadow-2xl p-8 sm:p-12">
+          <div class="flex flex-col sm:flex-row gap-8 items-center mb-8">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" 
+              alt="Autor do eBook" 
+              class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white"
+            />
+
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Dr. Ricardo Almeida</h3>
+              <p class="text-lg text-gray-600 mb-4">Ex-fumante de 18 anos | Especialista em Dependência Química</p>
+              <div class="flex gap-2 flex-wrap">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">15 anos de experiência</span>
+                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">+2.000 pessoas ajudadas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p class="text-lg">
+              <span class="font-bold text-gray-900">"Eu fumei por 18 anos."</span> Comecei aos 16, achando que era só uma fase. 
+              Aos 34, eu estava fumando 2 maços por dia, com tosse crônica e medo constante de deixar meus filhos sem pai.
+            </p>
+
+            <p class="text-lg">
+              Tentei de tudo: adesivos, chicletes, hipnose, força de vontade. Nada funcionava por mais de algumas semanas. 
+              Até que descobri que o problema não era a nicotina — era a forma como eu estava tentando parar.
+            </p>
+
+            <p class="text-lg">
+              Depois de estudar neurociência, psicologia comportamental e testar em mim mesmo, criei um método que funcionou. 
+              Parei há 12 anos e nunca mais voltei. Desde então, dedico minha vida a ajudar pessoas como você a conquistarem essa liberdade.
+            </p>
+
+            <div class="bg-blue-100 border-l-4 border-blue-500 p-6 rounded-lg mt-6">
+              <p class="text-gray-800 font-semibold italic">
+                "Se eu consegui depois de 18 anos fumando 2 maços por dia, você também consegue. 
+                E eu vou te mostrar exatamente como."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="bg-gradient-to-r from-green-50 to-emerald-50 py-16 sm:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="w-16 h-16 mx-auto mb-4 text-4xl">⭐</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Histórias Reais de Transformação
+          </h2>
+          <p class="text-xl text-gray-600">
+            Pessoas comuns que conquistaram a liberdade
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Maria Helena" class="w-16 h-16 rounded-full object-cover border-4 border-green-200" />
+              <div>
+                <h4 class="font-bold text-gray-900">Maria Helena, 52 anos</h4>
+                <p class="text-sm text-red-600 font-medium">Fumou por 28 anos</p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+
+            <p class="text-gray-700 leading-relaxed italic">"Fumei desde os 24 anos. Já tinha desistido de parar. Mas quando meu neto nasceu, eu sabia que precisava mudar. O método do Dr. Ricardo foi diferente de tudo que tentei. Hoje, 8 meses sem fumar, eu brinco com meu neto sem perder o fôlego. Minha filha me abraça sem reclamar do cheiro. Valeu cada segundo."</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" alt="Carlos Eduardo" class="w-16 h-16 rounded-full object-cover border-4 border-green-200" />
+              <div>
+                <h4 class="font-bold text-gray-900">Carlos Eduardo, 45 anos</h4>
+                <p class="text-sm text-red-600 font-medium">Fumou por 22 anos</p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+
+            <p class="text-gray-700 leading-relaxed italic">"2 maços por dia durante 22 anos. Minha esposa implorava para eu parar. Eu tentava e falhava. Com esse eBook, entendi que eu estava fazendo tudo errado. O protocolo de 90 segundos salvou minha vida. Hoje, 1 ano livre, economizei mais de R$ 8.000 e minha saúde voltou. Meus filhos têm o pai que merecem."</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Ana Paula" class="w-16 h-16 rounded-full object-cover border-4 border-green-200" />
+              <div>
+                <h4 class="font-bold text-gray-900">Ana Paula, 38 anos</h4>
+                <p class="text-sm text-red-600 font-medium">Fumou por 15 anos</p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+
+            <p class="text-gray-700 leading-relaxed italic">"Comecei na faculdade e nunca consegui parar. Tinha vergonha de fumar perto dos meus filhos. O plano de 21 dias foi perfeito para mim — simples e direto. Hoje, 6 meses depois, minha autoestima está lá em cima. Corro com meus filhos, subo escadas sem cansar. Me sinto viva de novo."</p>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="José Roberto" class="w-16 h-16 rounded-full object-cover border-4 border-green-200" />
+              <div>
+                <h4 class="font-bold text-gray-900">José Roberto, 61 anos</h4>
+                <p class="text-sm text-red-600 font-medium">Fumou por 35 anos</p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+
+            <p class="text-gray-700 leading-relaxed italic">"35 anos fumando. Achei que era tarde demais. Mas meu médico me alertou: ou você para, ou as consequências vão ser graves. Esse método me deu esperança. Segui cada passo. Hoje, 10 meses livre, minha pressão normalizou, não tenho mais tosse. Vou conhecer meus netos crescerem. Gratidão eterna."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl shadow-2xl p-8 sm:p-12 border-4 border-green-400">
+          <div class="text-center">
+            <div class="w-20 h-20 text-green-600 mx-auto mb-6 text-4xl">🛡️</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              Garantia Incondicional de 7 Dias
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed mb-6">
+              Você não corre <span class="font-bold text-green-600">nenhum risco</span>. 
+              Baixe o eBook, aplique o método por 7 dias. Se você não sentir que está no caminho certo, 
+              basta enviar um email e devolvemos 100% do seu investimento.
+            </p>
+            <p class="text-lg text-gray-600 mb-8">
+              Sem perguntas. Sem burocracia. Sem complicação.
+            </p>
+            <div class="bg-white rounded-xl p-6 shadow-lg inline-block">
+              <p class="text-2xl font-bold text-green-600">
+                Risco Zero. Resultado Garantido.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta-section" class="bg-gradient-to-r from-green-600 to-emerald-700 py-16 sm:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center text-white">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+          Sua Nova Vida Começa Agora
+        </h2>
+        <p class="text-xl sm:text-2xl mb-8 leading-relaxed">
+          Não espere mais um dia. Não perca mais um momento. <br class="hidden sm:block" />
+          Sua família está esperando por você.
+        </p>
+
+        <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 mb-8">
+          <div class="mb-8">
+            <p class="text-gray-500 text-lg line-through mb-2">De R$ 67,00</p>
+            <p class="text-5xl sm:text-6xl font-bold text-green-600 mb-2">R$ 17,00</p>
+            <p class="text-gray-600 text-lg">Oferta por tempo limitado</p>
+          </div>
+
+          <div class="space-y-4 mb-8 text-left">
+            <p class="text-gray-700 text-lg font-medium flex items-center gap-2">✅ eBook Completo: Liberdade Sem Fumaça</p>
+            <p class="text-gray-700 text-lg font-medium flex items-center gap-2">✅ Plano de 21 Dias Passo a Passo</p>
+            <p class="text-gray-700 text-lg font-medium flex items-center gap-2">✅ Protocolo de 90 Segundos Anti-Fissura</p>
+            <p class="text-gray-700 text-lg font-medium flex items-center gap-2">✅ Garantia de 7 Dias - Risco Zero</p>
+            <p class="text-gray-700 text-lg font-medium flex items-center gap-2">✅ Acesso Imediato e Vitalício</p>
+          </div>
+
+          <button 
+            onclick="window.open('https://pay.hotmart.com/seu-link-aqui', '_blank')"
+            class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-xl sm:text-2xl px-8 py-6 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+          >
+            <span class="icon-ghost">⬇️</span>
+            Quero Meu eBook Agora
+            <span class="icon-ghost">➡️</span>
+          </button>
+
+          <p class="text-gray-500 text-sm mt-4">
+            🔒 Pagamento 100% seguro | Acesso imediato após confirmação
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 text-center">
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="mx-auto mb-2 text-2xl">👥</div>
+            <p class="font-bold text-lg">+2.000</p>
+            <p class="text-sm">Pessoas Ajudadas</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="mx-auto mb-2 text-2xl">⭐</div>
+            <p class="font-bold text-lg">4.9/5.0</p>
+            <p class="text-sm">Avaliação Média</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="mx-auto mb-2 text-2xl">🛡️</div>
+            <p class="font-bold text-lg">7 Dias</p>
+            <p class="text-sm">Garantia Total</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Emotional Section -->
+  <section class="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <img 
+          src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=400&fit=crop" 
+          alt="Família feliz reunida" 
+          class="w-full h-64 sm:h-96 object-cover rounded-2xl shadow-2xl mb-12"
+        />
+
+        <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+          Imagine Esse Momento...
+        </h2>
+
+        <div class="space-y-6 text-lg sm:text-xl text-gray-700 leading-relaxed mb-12">
+          <p>
+            Você acorda sem tosse. Respira fundo, e o ar entra limpo, sem dor. 
+            Você desce as escadas sem perder o fôlego.
+          </p>
+
+          <p>
+            Seu filho te abraça forte e não se afasta. Sua esposa sorri, orgulhosa. 
+            Seus netos correm até você, e você corre com eles — de verdade.
+          </p>
+
+          <p class="font-semibold text-green-600 text-2xl">
+            Você está livre. Você está presente. Você está vivo.
+          </p>
+
+          <p>
+            Esse momento pode ser seu. Não amanhã. Não na próxima segunda-feira. <br />
+            <span class="font-bold text-gray-900">Agora.</span>
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl shadow-xl p-8 sm:p-12 mb-12">
+          <p class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+            A vida está passando.
+          </p>
+          <p class="text-xl text-gray-700 mb-6">
+            Cada dia que você adia é um dia a menos com quem você ama. 
+            Um dia a menos de saúde. Um dia a menos de liberdade.
+          </p>
+          <p class="text-2xl font-bold text-green-600">
+            Mas hoje, você pode escolher diferente.
+          </p>
+        </div>
+
+        <button 
+          onclick="window.open('https://pay.hotmart.com/seu-link-aqui', '_blank')"
+          class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-xl sm:text-2xl px-12 py-6 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-3 mx-auto mb-8"
+        >
+          <span class="text-2xl">❤️</span>
+          Liberte-se do Cigarro — Faça o Download
+          <span class="text-2xl">➡️</span>
+        </button>
+
+        <p class="text-gray-600 text-lg italic">
+          "O melhor momento para parar de fumar foi quando você começou. <br />
+          O segundo melhor momento é agora."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400 mb-4">
+        © 2024 Liberdade Sem Fumaça. Todos os direitos reservados.
+      </p>
+      <p class="text-gray-500 text-sm">
+        Este produto não substitui orientação médica profissional. Consulte seu médico.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Timer (mesma lógica do TSX)
+    (function(){
+      var minutes = 15;
+      var seconds = 0;
+      var el = document.getElementById('timer');
+
+      function updateDisplay() {
+        var mm = String(minutes).padStart(2,'0');
+        var ss = String(seconds).padStart(2,'0');
+        el.textContent = mm + ':' + ss;
+      }
+
+      updateDisplay();
+
+      setInterval(function(){
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else {
+          // reinicia
+          minutes = 15;
+          seconds = 0;
+        }
+        updateDisplay();
+      }, 1000);
+    })();
+
+    function scrollToCTA(){
+      document.getElementById('cta-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
